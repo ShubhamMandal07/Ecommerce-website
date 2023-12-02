@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanekar Electronics</title>
+    <link rel="stylesheet" href="css/LogInPage.css">
+    <link rel="stylesheet" href="css/LogInPage2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script type="module" async src="js/firebaseDatabase.js" ></script>
+    <!---we had linked our css file----->
+<style>
+    body {
+      background-image: url('image/bg1.jpg') ;
+      background-size: cover;
+    }
+    .logo {
+    background: url("k.jpg");
+    width: 170px;
+    height: 170px;
+    border-radius: 70%;
+    margin: 0 auto;
+  
+    background-repeat: no-repeat;
+    background-size: 170px 170px;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+  }
+
+  .cardimage {
+    background: url("tel1.png");
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 0 auto;
+  
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+    top: 250px;
+    left: 130px;
+  }
+    </style>
+    
+</head>
+
+<body background="blue"> 
+    <div class="container">
+        <div class="logo"></div>
+            <div class="navbar">
+                <div class="content">
+                    <h1>KANEKAR <br> &nbsp;&nbsp;&nbsp;ELECTRONICS</h1>
+                    <!---checking if the registration is successful----->
+                    
+
+                </div>         
+            </div>  
+        </div>
+       
+        <div class="card-box">
+            <div class="card-text">
+                <u><h2>Authorize Dealer For :</h2></u>
+            </div>
+            <div class="cardcontent-text">
+            <p>IFB,&nbsp; LG, &nbsp;PANASONIC, &nbsp;SONY, &nbsp;ONIDA,  &nbsp;SAMSUNG,
+               BLUE-STAR, &nbsp;WHIRLPOOL, &nbsp;USHA, &nbsp;PHILIPS, 
+             <br> TATA SKY, &nbsp;VGUARD,&nbsp;DISH TV, &nbsp;GODREJ.</p>
+            </div>
+            <div class="cardaddress-text">
+            <p> &emsp;&emsp;Padmashree Bldg. Ground Floor, Old Bazar, <br>
+                Ponda - Goa - 403401</p>
+
+            </div>
+            <div class="cardimage"></div>
+    
+        <div class="cardnumber-int">
+            <h4> &emsp;&emsp;(0832):2312837,&nbsp;2317391</h4>
+            </div>
+        <div class="cardemail-text">
+            <p> Email:-&nbsp;kanekarelectronics@gmail.com</p>
+            </div>
+    
+      </div>
+       
+        
+        <!---Form code Starts here----->
+        <div class="goright">
+            <div class='login-page'>
+                <div class="form-box">
+                    <div class='button-box'>
+                        <div id='btn'></div>
+                        <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
+                        <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+                    </div>
+                    <form id='login' class='input-group-login' autocomplete="off">
+                        <input type='text'class='input-field'placeholder='Email Id' id="LoginEmail" name="email" required >
+		                <input type='password' id="id_password" class='input-field'placeholder='Enter Password' name="password" required>
+                        
+                        <div class="eye"><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i></div>
+		                <button type='button'class='log-btn' id="LogIn" name="login">Log in</button>
+		            </form>
+		            <form id='register' class='input-group-register' autocomplete="off">
+		                <input type='text'class='input-field'placeholder='First Name' id="FirstName" name="firstname" required>
+		                <input type='text'class='input-field'placeholder='Last Name ' id="LastName" name="lastname" required>
+                       
+                        <input type='text'class='input-field'placeholder='Address' id="address" name="address" required>
+                        <input type='phone'class='input-field'placeholder='phone' id="PhoneNumber" name="phone" required>
+		                <input type='email'class='input-field'placeholder='Email Id' name="email" id="Email" required>                        
+		                <input type='password' id="regi_password" class='input-field'placeholder='Enter Password' name="password" required>
+                        <input type='password' id="Confregi_password" class='input-field'placeholder='Confirm Password' required>
+                        <div class="regi_eye"><i class="far fa-eye" id="regiPassword" style="margin-left: -30px; cursor: pointer;"></i></div>
+                        <div class="Confirm_regi_eye"><i class="far fa-eye" id="regiConPassword" style="margin-left: -30px; cursor: pointer;"></i></div>
+                        
+                        <button type='button'class='regi-btn'  id="SignUp" name="submit">Register</button>
+	                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!---JavaScript code ----->
+
+    <script>
+    var x=document.getElementById('login');
+    var y=document.getElementById('register');
+    var z=document.getElementById('btn');
+    function register()
+    {
+        x.style.left='-400px';
+        y.style.left='50px';
+        z.style.left='110px';
+    }
+    function login()
+    {
+        x.style.left='50px';
+        y.style.left='450px';
+        z.style.left='0px';
+    }
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        const regiPassword = document.querySelector('#regiPassword');
+        const regipassword = document.querySelector('#regi_password');
+
+        regiPassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = regipassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            regipassword.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        const regiConPassword = document.querySelector('#regiConPassword');
+        const regiconpassword = document.querySelector('#Confregi_password');
+        regiConPassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = regiconpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            regiconpassword.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+</script>
+	<script>
+        var modal = document.getElementById('login-form');
+        window.onclick = function(event) 
+        {
+            if (event.target == modal) 
+            {
+                modal.style.display = "none";
+            }
+        }
+    </script>    
+</body>
+</html>
+

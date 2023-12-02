@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanekar Electronics</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/LogInPage.css">
+    <script src="js/sweetalert.min.js"></script>
+    
+    
+
+    <!-- boostrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="module" async src="js/firebase.js" ></script>
+    
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo">
+        <img src="image/logo.png" width="250px">
+        
+    </a>
+
+    <div class="menu-bar-main">
+        <ul>
+            <li class="active"><a href="#"></i>Home</a></li>
+            <li>
+                <a href="#"></i>Categories</a>
+                <div class="sub-main-menu-1">
+                    <ul>
+                       <li class="hover-me">
+                           <a href="#">AC <i class="fa fa-angle-right"></i></a>
+                           <div class="sub-main-menu-2">
+                               <ul>
+                                   <li><a id="SamSungAC" >SamSung</a></li>
+                                   <li><a id="">Voltas</a></li>
+                                   <li><a id="PanasonicAc">Panasonic</a></li>
+                                   <li><a id="LGAC">Lg</a></li>
+                               </ul>
+                           </div>
+                       </li>
+                       <li class="hover-me">
+                           <a href="#">TV <i class="fa fa-angle-right"></i></a>
+                           <div class="sub-main-menu-2">
+                               <ul>
+                                   <li><a id="SamSungTv">SamSung</a></li>
+                                   
+                                   <li><a id="SonyTv">Sony</a></li>
+                                   <li><a id="LGTV">LG</a></li>
+                                   <li><a id="PanasonicTV" >Panasonic</a></li>
+                               </ul>
+                           </div>
+                       </li>
+                       <li class="hover-me">
+                           <a href="#">Fridge <i class="fa fa-angle-right"></i></a>
+                           <div class="sub-main-menu-2">
+                               <ul>
+                                   <li><a id="SamSungfridge"> SamSung</a></li>
+                                   <li><a id="Whirlpoolfridge">Whirlpool</a></li>
+                                   <li><a id="LGFridge">LG</a></li>
+                                   <li><a id="PanasonicFridge">Panasonic</a></li>
+                               </ul>
+                           </div>
+                       </li>
+                       <li class="hover-me">
+                           <a href="#">Washing Machine <i class="fa fa-angle-right"></i></a>
+                           <div class="sub-main-menu-2">
+                               <ul>
+                                   <li><a id="SamSungWM">SamSung</a></li>
+                                   <li><a id="LGWM">LG</a></li>
+                                   <li><a id="WhirlpoolWm">Whirlpool</a></li>
+                                   <li><a id="PanasonicWm">Panasonic</a></li>
+                               </ul>
+                           </div>
+                       </li>
+                   </ul>
+               </div>
+               
+            </li>
+            <li><a href="#About">About Us</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            
+        </ul>
+    </div>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <!-- <div class="fas fa-heart" id="wishlist-btn"></div> -->
+        <div class="fas fa-shopping-cart" id="cart-btn" style="display: none;"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+        <!-- <div class="fas fa-user" id="admin-btn" href=""></div> -->
+    </div>
+
+    <form action=""class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" id="search-icon" class="fas fa-search"></label>
+    </form>
+
+    
+
+    <form action=""  class="login-form">
+        <h3 id="test">Welcome</h3>
+        <a id="showForm">LOGIN/SIGNUP</a>
+    </form>
+
+    <form action="" id="signup-form" class="signup-form">
+        <h3>Profile</h3>
+        <a class="logout-btn" href="CheckOutPage.html"> <i class="fa fa-shopping-cart" style="font-size:28px;color:--black"></i> Checkout </a> <br>
+        <a class="logout-btn" href="#contactus"><i class="fa fa-phone" style="font-size:28px;color:--black"></i>  Contact Us </a> <br>
+        <button  type="button" class="logout-btn" id="logout"  onclick="">LogOut</button> <br>
+
+
+        
+    </form>
+    
+<div class="goright">
+    
+    <div class='login-page'>
+        
+        <div class="form-box" id="form-box">
+            
+            <div class="CloseForm"><button type="button" class="closeBtn" id="closebutton">x</button> </div>
+            <div class='button-box' id="btn-box">
+                <div id='btn'></div>
+                <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
+                <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+            </div>
+            <form id='login' class='input-group-login' autocomplete="off">
+                <input type='text'class='input-field'placeholder='Email Id' id="LoginEmail" name="email" required >
+                <input type='password' id="id_password" class='input-field'placeholder='Enter Password' name="password" required>
+                
+                <div class="eye"><i class="far fa-eye fa-2x" id="togglePassword" style="margin-left: -30px; cursor: pointer; size: 50px;"></i></div>
+                <button type='button'class='log-btn' id="LogIn" name="login">Log in</button>
+            </form>
+            <form id='register' class='input-group-register' autocomplete="off">
+                <input type='text'class='input-field'placeholder='First Name' id="FirstName" name="firstname" required>
+                <input type='text'class='input-field'placeholder='Last Name ' id="LastName" name="lastname" required>
+               
+                <input type='text'class='input-field'placeholder='Address' id="address" name="address" required>
+                <input type='phone'class='input-field'placeholder='phone' id="PhoneNumber" name="phone" required>
+                <input type='email'class='input-field'placeholder='Email Id' name="email" id="Email" required >                        
+                <input type='password' id="regi_password" class='input-field'placeholder='Enter Password' name="password" required  minlength="6">
+                <input type='password' id="Confregi_password" class='input-field'placeholder='Confirm Password' required>
+                <div class="regi_eye"><i class="far fa-eye fa-2x" id="regiPassword" style="margin-left: -30px; cursor: pointer;"></i></div>
+                <div class="Confirm_regi_eye"><i class="far fa-eye fa-2x" id="regiConPassword" style="margin-left: -30px; cursor: pointer;"></i></div>
+                
+                <button type='button'class='regi-btn'  id="SignUp" name="submit">Register</button>
+                <script src="js/sweetalert.min.js"></script>
+            </form>
+        </div>
+    </div>
+</div>
+
+</header>
+
+<!-- header section ends -->
+
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper">
+
+            <div class="swiper-slide slide">
+                
+                <div class="image">
+                    <img id="offer1" src="image/offer1.jpg" height="550px"  >
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               
+                <div class="image">
+                    <img id="offer2" src="image/offer2.png" height="550px">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                
+                <div class="image">
+                    <img id="offer3" src="image/offer3.jpg" height="550px">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+        
+
+    </div>
+
+</section>
+<!-- home section ends -->
+<br><br><br><br><br><br>
+<!-- popular_products section starts  -->
+
+<section class="popular_products" id="popular_products">
+
+    <h1 class="heading"><span>Popular Brands</span></h1>
+    
+
+    <div class="box-container">
+
+        <div class="box" >
+            <br> 
+            <a href="samsung2.html" id="PopularSamsung"><img  src="image/Samsung_Logo.svg.webp" width="200px" class="btn"></a>
+            <br>
+            
+        </div>
+
+        <div class="box">
+            <br> 
+            <a href="Panasonic2.html"  id="PopularPanasonic" ><img  src="image/panasonic.png" width="200px" class="btn"></a>
+            <br>
+        </div>
+
+        <div class="box">
+            <br> 
+            <a  id="PopularSony"><img  src="image/Sony-logo.png" width="200px" class="btn"></a>
+            <br>            
+        </div>
+
+        <div class="box">
+            <br> 
+            <a  id="PopularLg"><img  src="image/lg_logo.png" width="200px" class="btn"></a>
+            <br>
+        </div>
+
+        <div class="box">
+            <br> 
+            <a  id="PopularOnida"><img  src="image/onida.png" width="200px" height="100px" class="btn"></a>
+        </div>
+
+        <div class="box">
+            <br>  
+            <a  id="PopularWirlpool"><img   src="image/whirlpoollogo.png" width="180px"  class="btn"></a>
+            <br> 
+        </div>
+        <br>
+    </div>
+
+</section>
+
+<!-- popular_products section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="About">
+
+    <h1 class="sub-heading"> About Us </h1>
+    <h2 class="heading"> why choose us? </h2>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="image/kanekar_shop_image.jpg">
+        </div>
+
+        <div class="content">
+            <h3>best Electronic Products in Ponda</h3>
+           
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Fast delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Wide Range of Products</span>
+                </div>
+            </div>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- contact section start -->
+
+<section class="contact" id="contactus">
+
+    <h1 class="sub-heading"> contact us</h1>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15386.092432995882!2d74.0103687!3d15.4022926!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd2f171e31c4aef2e!2sKanekar%20Electronics!5e0!3m2!1sen!2sin!4v1650467507974!5m2!1sen!2sin"  allowfullscreen="" loading="lazy"></iframe>
+
+        <form action="">
+            <h3>get in touch</h3>
+            <div class="inputBox">
+                <!-- <span class="fas fa-user"></span> -->
+                <input type="text" placeholder="name">
+            </div>
+            <div class="inputBox">
+                <!-- <span class="fas fa-envelope"></span> -->
+                <input type="email" placeholder="email">
+            </div>
+            <div class="inputBox">
+                <!-- <span class="fas fa-phone"></span> -->
+                <input type="number" placeholder="number">
+            </div>
+           <!-- <input type="submit" value="contact now" class="btn">-->
+            <a href="#" class="contactbtn">Contact Now</a>
+        </form> 
+
+    </div>
+
+</section>
+
+<!-- contact section end -->
+
+<!-- footer section starts  -->
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3> <span></span> Kanekar Electronics </span> </h3>
+            <p>All Type of Electronic Gadgets are Here.</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91-7028460043 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91-9284305897 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> hrishikanekar2904@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Goa, India - 403401 </a>
+        </div>
+
+        
+
+        <div class="box">
+            <h3>Brands</h3>
+            <a href="Sony.html" class="links"> <i class="fas fa-arrow-right"></i> Sony </a>
+            <a href="Samsung1.html" class="links"> <i class="fas fa-arrow-right"></i> SamSung </a>
+            <a href="Lg.html" class="links"> <i class="fas fa-arrow-right"></i> LG </a>
+            <a href="Onida.html" class="links"> <i class="fas fa-arrow-right"></i> Onida </a>
+            <a href="Panasonic.html" class="links"> <i class="fas fa-arrow-right"></i> Panasonic </a>
+            
+        </div>
+        <div class="box">
+            <img src="image/payment.png" class="payment-img" alt="">
+        </div>
+    </div>
+
+    <div class="credit"> created by <o> TYBCA </o>  | all rights reserved </div>
+
+</section>
+
+<!--<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Brands</h3>
+            <a href="Sony.html">Sony</a>
+            <a href="Samsung.html">SamSung</a>
+            <a href="Lg.html">LG</a>
+            <a href="Onida.html">Onida</a>
+            <a href="Panasonic.html">Panasonic</a>
+            
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#contactus">Contact Us</a>
+            <a href="#About">about</a>
+            
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+91-7028460043</a>
+            <a href="#">+91-9284305897</a>
+            <a href="#">svishwakarma1020@gmail.com</a>
+            <a href="#">gauderohan44@gmail.com</a>
+            <a href="#">Goa, india - 403401</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+           
+        </div>
+
+    </div>
+
+    <div class="credit"> copyright @ 2022 by <span>mr. Rohan and Shubham  and Team</span> </div>
+
+</section>-->
+
+<!-- footer section ends -->
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script type="module" async src="js/firebase.js" ></script>
+<script type="module" async src="js/firebaseDatabase.js" ></script>
+<script>
+    var LoginForm2 = document.getElementById("form-box")
+    var i = 1;
+  
+
+    var formButton = document.getElementById('showForm')
+    formButton.onclick = function(){
+        document.querySelector('.home').style.filter = "blur(5px)";
+        LoginForm2.style.visibility = "visible";
+         i = 0;
+         console.log(i)     
+    }
+
+    document.getElementById('closebutton').onclick = function()
+    {
+        document.querySelector('.home').style.filter = "blur(0px)";
+                LoginForm2.style.visibility = "hidden";
+
+    }
+
+   var ignoreClickOnMeElement = document.getElementById('form-box');
+    console.log(i)
+    if(i==0)
+    { console.log("fwfawfw")
+        document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+               
+                document.querySelector('.home').style.filter = "blur(0px)";
+                LoginForm2.style.visibility = "hidden";
+                i=1
+            }
+        });
+    }
+
+    var x=document.getElementById('login');
+    var y=document.getElementById('register');
+    var z=document.getElementById('btn');
+    function register()
+    {
+        x.style.left='-500px';
+        y.style.left='70px';
+        z.style.left='125px';
+    }
+    function login()
+    {
+        x.style.left='50px';
+        y.style.left='450px';
+        z.style.left='0px';
+    }
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        const regiPassword = document.querySelector('#regiPassword');
+        const regipassword = document.querySelector('#regi_password');
+
+        regiPassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = regipassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            regipassword.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        const regiConPassword = document.querySelector('#regiConPassword');
+        const regiconpassword = document.querySelector('#Confregi_password');
+        regiConPassword.addEventListener('click', function (e) 
+        {
+            // toggle the type attribute
+            const type = regiconpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            regiconpassword.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+</script>
+</body>
+</html>

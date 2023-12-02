@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="module" src="../js/firebaseDatabase.js"></script>
+    <title>Admin Panel</title>
+<!-- 
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/firebaseDatabase.js"></script> -->
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../css/main1.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script  type="module" src="../js/firebaseDatabase.js"></script>
+  </head>
+
+  <body>
+    
+    <div class="full-page">
+      <div class="container">
+        <div class="logo" > </div>
+        
+        </div>
+     
+
+       
+      
+    <div class="form-box" id="formMain">
+    <style> img{height: 150px; width: 150px; border: 2px solid black;} </style>
+
+    <form class='input-group-login'>
+      <table>
+        <tr>
+          <td>Product name :</td>
+            <td><input id="ProductName" class='input-field' placeholder = "Product Name" type="text"></td>
+        </tr>
+        <tr>
+            <td>Product ID :</td>
+            <td><input id="ProductID"  class='input-field' placeholder = "Product ID" type="text"></td>
+        </tr>
+        <tr>
+            <td>Description :</td>
+            <td><textarea  rows = "14" cols = "50" id="Description" type="text" class='input-field' placeholder = "Description"></textarea></td>
+        </tr>
+          <tr>
+            <td>Price :</td>
+            <td><input id="Price" class='input-field' placeholder = "Price" type="number"></td>
+          </tr>
+          <tr>
+            <td>Sale Price :</td>
+            <td><input id="Sale-Price" class='input-field' placeholder = "Sale-Price" type="number"></td>
+          </tr>
+          
+      </table>
+    </form>
+
+    <form action="">
+      
+    <!-- <table>
+      
+        <tr>
+          <td>
+            <img id="myimgMain"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImgMain" name="filename">
+          </td>
+          <td>
+            <img id="myimg1"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImg1" name="filename">
+          </td>
+          <td>
+            <img id="myimg2"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImg2" name="filename">
+          </td>
+          
+        </tr>
+      
+    </table> -->
+    
+    <br>
+    
+    <textarea rows = "2" cols = "40" placeholder = "SearchTags" id="SearchTags"></textarea>
+ 
+   <br><br>
+    <button  type="button" class='toggle-btn' id="updates"> Updates</button>
+    <button type="button" id="upload" style="display: none;" ></button>
+    <button type="button" id="SiteTitle" style="display: none;" ></button>
+
+ 
+    <button  type="button" class='toggle-btn' id="goBack"> <- GoBack</button>
+    <button type="button" id="upload" style="display: none;" ></button>
+    <button type="button" id="SiteTitle" style="display: none;" ></button>
+
+    </form>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </div>
+</div>
+</div>
+<script>
+  document.getElementById("updates").onclick = function(){
+    alert("Product Details Updated succesfully")
+  }
+  // var form = document.getElementById("formMain")
+  // var form2 = document.getElementById("form2")
+  // var goBack = document.getElementById("goBack")
+  // var search = document.getElementById("ProductSearch")
+  // var ProductName = document.getElementById("ProductName")
+
+  // form.style.display ="none"
+ 
+ 
+  // goBack.onclick = function(){
+    
+  //   form.style.display ="none";
+  //   form2.style.display = "block";
+  // }
+  // document.getElementById("AddNewBtn").onclick = function(){
+  //   console.log("sfi")
+  //   window.location.href = "AddNewItem.html"
+    
+  // }
+
+</script>
+ <!-- <script type="module">
+            import {getDatabase,ref, set ,onValue , get,child,orderByChild ,query,equalTo,limitToFirst,startAt,endAt,orderByValue ,onChildAdded} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+            const db = getDatabase();
+    
+           // console.log(sessionStorage.getItem("ProductCompanyName"));
+           // console.log(sessionStorage.getItem("ProductCategory"));
+            var companyName = sessionStorage.getItem("ProductCompanyName");
+            var categoryName=sessionStorage.getItem("ProductCategory");
+           
+            document.getElementById("SiteTitle").innerHTML = companyName;
+
+            var clickBtn = document.getElementById("click")
+            clickBtn.onclick = function(){
+           
+          
+              var searchbox =  document.getElementById("ProductSearch").value
+            
+           // sessionStorage.setItem("SearchTag",searchbox)
+        
+           
+           
+            var arr = []    
+            var searchFor = searchbox.toLowerCase();
+
+            //console.log(searchFor)
+            var companyName = ["SONY","SAMSUNG","LG","ONIDA","PANASONIC","whirlpool"]
+            var categoryName = ["FRIDGE","TV","AC","WASHING MACHINE"]
+
+            for(var i = 0;i< companyName.length;i++)
+            {
+                
+                for(var j=0;j<categoryName.length;j++)
+                {
+                    
+                    const result = query(ref(db, 'Products/' + companyName[i]+'/'+ categoryName[j]), orderByChild('ProductSearchTags'))
+                    //console.log(result)
+                    
+                    
+                    onChildAdded(result, (data) => {
+                        
+                        var str = data.val().ProductSearchTags //pid p1
+                        // console.log(str)
+                        // console.log(str.search(searchFor)) 
+                        if(str.search(searchFor) >=0)
+                        {
+                            var item = data.val();
+                            // console.log(item)
+                                item.key = data.key;
+                           //console.log(item.key)
+                                arr.push(item);
+                            
+                        }
+                    });
+                }
+            }
+            console.log(arr)
+           
+            
+           
+          
+            
+            sessionStorage.setItem("AdminSerachItem", JSON.stringify(arr));
+              
+            }
+                    
+           
+            
+            
+            </script> -->
+
+  </body>
+</html>        

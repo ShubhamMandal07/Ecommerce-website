@@ -1,0 +1,56 @@
+<html>
+    <head><title>test  </title></head>
+    <body>
+        <h1>test    </h1>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+        <script>
+                const firebaseConfig = {
+            apiKey: "AIzaSyCkLEpTDNACAePlshbA-6VTmF5XHYrvbK4",
+            authDomain: "kanekarelect.firebaseapp.com",
+            databaseURL: "https://kanekarelect-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "kanekarelect",
+            storageBucket: "kanekarelect.appspot.com",
+            messagingSenderId: "33301413608",
+            appId: "1:33301413608:web:00ec71850d817fb35c535d",
+            measurementId: "G-RV4W62YCKD"
+            };
+        // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            // var database = firebase.database();
+            // var databaseReference = (database,"Products/")
+
+
+
+            var dbRef = firebase.database().ref("Products/SONY/TV");
+           
+            // dbRef.on("value", snap => {
+            //     console.log(snap.val()); // this key will output users
+            //     console.log(snap.key); // this method will return full user
+            // });
+            var query = 'Sony'
+            dbRef.orderByChild('ProductSearchTags')
+                        .startAt(`%${query}%`)
+                        .endAt(query+"\uf8ff")
+                        .once("value")
+
+            
+            writeUserData()
+            function writeUserData() {
+            firebase.database().ref('OrderDetails/011' ).set({
+               OrderId: "011",
+               ProductDetails: {
+                   ProductId: "KD-32W830"
+               },
+               TotalAmount : "15000"
+
+            });
+            }
+
+        </script>
+    </body>
+</html>

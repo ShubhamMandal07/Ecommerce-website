@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link type="text/css" href="css/main1.css" rel="stylesheet" />
+        <link type="text/css" href="css/product.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous"
+        />
+        <script src=
+        "https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+        
+        <title>Whirlpool</title>
+        <script  type="module" src="js/firebaseDatabase.js"></script>
+        <!-- <script type="text/javascript">
+             var storedArray = JSON.parse('[' + sessionStorage.getItem("items") + ']');
+             
+        </script> -->
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <nav>
+            <!--Navbar has two part the top one and the bottom one-->
+            <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+            <div class="navbar-top">
+                <div>
+                    <button id="menuButton"><i class="fas fa-bars"></i></button>
+                    <!--Logo-->
+                    <a href="index.html" class="logo">
+                        <img src="image/logo.png"  height="50px">
+
+                    </a>
+                </div>
+                <div>
+                    <!--My account part-->
+                    <!-- <div class="account">
+                        <a href="index.html">
+                            <button class="account-btn">
+                                <i class="fas fa-user-alt"></i>
+                            </button>
+                            <span class="account-text">My account</span>
+                        </a> -->
+                    <!--When we click the btnShowAccountInfo this section will be displayed-->
+                    </div>
+                    <!--Shopping cart-->
+                    <div class="shopping-cart">
+                        <div class="sum-prices">
+                            <!--Shopping cart logo-->
+                            
+                                <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                            <!--The total prices of products in the shopping cart -->
+                            <h6 id="sum-prices"></h6>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Navbar bottom part -->
+            <!-- Here I put the links to the other pages or nav links -->
+            
+                <!-- The searchbar which will be in the right side of the links -->
+               
+            <div class="producstOnCart hide">
+                <div class="overlay"></div>
+                <div class="top">
+                    <button id="closeButton">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                    <h3>Cart</h3>
+                </div>
+                <ul id="buyItems">
+                    <h4 class="empty">Your shopping cart is empty</h4>
+                    <!-- <li class="buyItem">
+						<img src="Images/producs-images/Mobiles/galaxynote10.png">
+						<div>
+							<h5>Products Name</h5>
+							<h6>$199</h6>
+							<div>
+								<button>-</button>
+								<span class="countOfProduct">1</span>
+								<button>+</button>
+							</div>
+						</div>
+					</li> -->
+                </ul>
+                <a href="CheckOutPage.html"><button class="btn checkout hidden" >Check out</button></a>
+            </div>
+        </nav>
+        <h1 id="SiteTitle" class="heading">WHIRLPOOL</h1>
+        <input type="text"  id="number" style="display: none;">
+            <section class="main-section">
+                <div class="product-container">
+                    
+                    <div class="products">
+                        <!-- <div id="HtmlCode"></div> -->
+                        
+                        
+                        <script>
+                            
+                       
+                        
+                    //     var arr = []
+                    //    function sendData(returnArr)
+                    //    {
+
+                    //        //console.log(returnArr.length)
+                    //        arr = returnArr
+                    //        //window.sessionStorage.setItem("items", JSON.stringify(arr));
+                    //        localStorage.setItem("items", JSON.stringify(arr));
+                    //    }
+                       
+                       var delayInMilliseconds = 1000; //1 second
+
+                        setTimeout(function() {
+                        //your code to be executed after 1 second
+                        var num = document.getElementById("number").value;
+                       console.log(num)
+                       number(num)
+                        }, delayInMilliseconds);
+                       
+                      var storedArray = JSON.parse('[' + sessionStorage.getItem("items") + ']');
+                      console.log(storedArray[0][0].ProductID)
+                      
+                                function number(num)
+                                {
+                                    sessionStorage.setItem("num",num);
+                                }
+                                   
+                                var num2 = sessionStorage.getItem("num")
+                                
+                                        
+                                for (var i = 0; i < storedArray[0].length; i++) 
+                                    {
+                                
+                                        //ProductId[i] = sessionStorage.getItem("ProductId"+i)
+                                        // console.log(ProductId[i]) 
+                                        
+                                       
+                                        document.write
+                                        ( '<div  class="product">',
+                                                    '<div class="product-under">',
+                                                        '<figure class="product-image">',
+                                                            '<img  id="ProductImageLinkDb',i,'" src="" alt=""/>',
+                                                            ' <div class="product-over">',
+                                                            '<button class="btn btn-small addToCart"  data-product-id="',storedArray[0][i].ProductID,'"><i class="fas fa-cart-plus"></i>Add to cart</button>',
+                                                            '<a onclick="redirect(',i,')" class="btn btn-small">More Info</a>',
+                                                            '</div>',
+                                                        '</figure>',
+                                                            ' <div  class="product-summary">',
+                                                                '<h4 class="productName" id="ProductNameDb',i,'"></h4>' ,
+                                                                '<h6 class="price">Rs<span class="priceValue" id="ProductPriceDb',i,'"></span></h6>',
+                                                            '</div>',
+                                                            '</div>',
+                                                    '</div>'
+                                        )
+                                        var check = document.querySelector(".btn btn-small addToCart")
+                                       console.log(check)
+                                        
+                                        
+                                            
+                                        // if () {
+                                            
+                                        //     console.log("empty")
+                                        //     break
+                                        // }
+                                        // else
+                                        // {
+                                            
+                                        //     console.log("Not empty")
+                                        
+                                        // }
+                                        
+                                        
+                                    }
+                            
+                                   
+                                   function redirect(productId)
+                                        {
+                                           // console.log(storedArray[0][productId])
+                                            sessionStorage.setItem("moreInfo", JSON.stringify(storedArray[0][productId]));
+                                            
+                                           window.location.href = 'ProductDetail.html';
+                                        }
+                                        
+                            
+                        
+                        </script>
+ 
+                    </div>
+                </div>
+            </section>
+            
+        <script src="js/script1.js"></script>
+        <script src="js/shopping-cart.js"></script>
+
+        <!-- <script type="module">
+            import {getDatabase,ref, set ,onValue , get,child } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+            const db = getDatabase();
+    
+            console.log(sessionStorage.getItem("ProductCompanyName"));
+            console.log(sessionStorage.getItem("ProductCategory"));
+            var companyName = sessionStorage.getItem("ProductCompanyName");
+            var categoryName=sessionStorage.getItem("ProductCategory");
+           
+            document.getElementById("SiteTitle").innerHTML = companyName;
+      
+           
+            const dbRef = ref(getDatabase());
+            get(child(dbRef, `Products/` + companyName + '/' + categoryName)
+            ).then((snapshot) =>
+            {
+                if (snapshot.exists()) 
+                {
+                    var returnArr = [];
+                    snapshot.forEach((child) =>
+                    {
+                        var item = child.val();
+                        //console.log(item)
+                        item.key = child.key;
+                       // console.log(item.key)
+                    //    sendData(item,item.key);
+                        returnArr.push(item);
+
+
+
+
+
+
+
+
+                        
+                    });
+                    //console.log(returnArr)
+                 
+                    document.getElementById("number").value =  returnArr.length;
+                    for ( var i=0; i < returnArr.length; i++) 
+                    {
+                        document.getElementById("ProductImageLinkDb" + i).setAttribute('src',returnArr[i].ProductMainImageLink)
+                        sessionStorage.setItem("ProductId" + i,returnArr[i].ProductID)
+                        console.log(sessionStorage.getItem("ProductId0" ))
+                        document.getElementById("ProductNameDb" + i).innerHTML =  returnArr[i].ProductName;
+                        document.getElementById("ProductPriceDb" + i).innerHTML =  returnArr[i].ProductSalePrice;
+                        
+                    } 
+                    sessionStorage.setItem("items", JSON.stringify(returnArr));
+                    
+                }
+            })
+            
+            
+            </script> -->
+    </body>
+</html>

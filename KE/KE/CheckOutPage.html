@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Out Page</title>
+        <link rel="stylesheet" href="css/CheckOutPage.css">
+        <script type="module" src="js/firebaseDatabase.js"></script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    </head>
+    <body>
+
+        <div class='container'>
+            <div class='window'>
+              <div class='order-info'>
+                <div class='order-info-content'>
+                  <h2>Order Summary</h2>
+                  <table class='order-table'>
+                  <script>
+                    // var instance = new Razorpay({ key_id: 'rzp_test_1KEvNdm6IwbgQG', key_secret: 'F9e5Og66wwC4HT6zjOScixx4' })
+
+                    // var instance = new Razorpay({ key_id: 'rzp_test_1KEvNdm6IwbgQG', key_secret: 'F9e5Og66wwC4HT6zjOScixx4' })
+
+                    // instance.orders.all(option)
+                    let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
+                    console.log(productsInCart)
+            
+                         
+                    for (var i = 0; i < productsInCart.length; i++) 
+                    {                       
+                        document.write
+                        ( 
+                          '<tbody>',
+                              '<tr>',
+                                  '<td><img src="',productsInCart[i].image,'" class="full-width"></img>',
+                                  '  </td>',
+                                  '<td>',
+                                  '<br> <span class="thin"></span>',
+                                  '<br>',productsInCart[i].name,'<br> ',
+                              
+                                  ' <br><br></span>',
+                                      '</td>' ,
+                                      '<tr>',
+                                  ' <td>',
+                                  '<div class="price">Rs. ',productsInCart[i].price,'</div>',
+                          '</td>',
+                          // '<div class="line"></div>',
+                          '</tr>',
+                          
+                          '</tbody>'
+                                    
+                        )
+
+                        calculateTotalPrice(productsInCart[i].price)
+                        
+                        //console.log(productsInCart[i].price)
+                        
+                    }
+              var totalPrice = 0;      
+            function calculateTotalPrice(price)
+            {
+              //console.log(price)
+            totalPrice = parseInt(price) 
+             console.log(totalPrice)
+             sessionStorage.setItem("TotalPrice",totalPrice);
+            }
+           
+            
+                  </script>
+                  
+                    
+          
+                  </table>
+   
+          <div class='line'></div>
+                 
+          </div>
+         
+          </div>
+          <div class="Total-block">
+           
+            <div class="block">
+            <div class='total'>
+              <span class="Value" style='float:left;'>
+                TOTAL
+              </span>
+            <span class="PriceShow" id="totalPrice" style='float:right; text-align:right;'>
+              Rs.565900
+            </span>
+          </div>
+          </div>
+          
+          </div>
+                  <div class='credit-info'>
+                    <div class='credit-info-content'>
+                      <img src='image/logo.png' class="logo-img"  width="200px"></img>
+                      <h1 id="testclick">Billing Address</h1>
+                      
+                      Full Name
+                      <input type="text" class='input-field' id="fullName" ></input>
+                      Email
+                      <input class='input-field' id="email" required></input>
+                      Address line 1
+                      <input class='input-field' id="address1"></input>
+                      Address line 2
+                      <input class='input-field' id="address2"></input>
+                      
+                      
+                      <table class='half-input-table'>
+                        <tr>
+                          <td> City
+                            <input class='input-field'></input>
+                          </td>
+                          <td>Pin Code
+                            <input class='input-field'></input>
+                          </td>
+                        </tr>
+                      </table>
+                      <button class='pay-btn' id="CheckOutBtn">Checkout</button>
+                      <script src="js/sweetalert.min.js"></script>
+                    <script>
+                      
+                        
+                    </script>
+                    </div>
+
+                  </div>
+                </div>
+          </div>
+          <script src="js/CheckOutPage.js"></script>
+         
+         <script>
+         
+         </script>
+           
+    </body>
+
+</html>

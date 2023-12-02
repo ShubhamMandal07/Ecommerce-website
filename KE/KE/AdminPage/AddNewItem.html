@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Admin Panel</title>
+
+    <script type="module" src="../js/firebase.js"></script>
+    <script type="module" src="../js/firebaseDatabase.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  </head>
+
+  <body>
+    
+    <div class="full-page">
+      <div class="container">
+        <div class="logo" > </div>
+        
+        </div>
+    <div class="form-box" id="formMain">
+    <style> img{height: 150px; width: 150px; border: 2px solid black;} </style>
+
+    <form class='input-group-login'>
+      <table>
+        <tr>
+          <td>Product name :</td>
+            <td><input id="ProductName" class='input-field' placeholder = "Product Name" type="text"></td>
+        </tr>
+        <tr>
+            <td>Product ID :</td>
+            <td><input id="ProductID"  class='input-field' placeholder = "Product ID" type="text"></td>
+        </tr>
+        <tr>
+            <td>Description :</td>
+            <td><textarea  rows = "2" cols = "40" id="Description" type="text" class='input-field' placeholder = "Description"></textarea></td>
+        </tr>
+          <tr>
+            <td>Price :</td>
+            <td><input id="Price" class='input-field' placeholder = "Price" type="number"></td>
+          </tr>
+          <tr>
+            <td>Sale Price :</td>
+            <td><input id="Sale-Price" class='input-field' placeholder = "Sale-Price" type="number"></td>
+          </tr>
+          <tr>
+            <td>Company Name :</td>
+            <td>
+              <input type="radio" id="samsung" name="CompanyName" value="SAMSUNG"> <label for="SAMSUNG">SAMSUNG</label>
+              <input type="radio" id="sony" name="CompanyName" value="SONY"> <label for="FRIDGE">SONY</label>
+              <input type="radio" id="panasonic machine" name="CompanyName" value="PANASONIC"> <label for="PANASONIC">PANASONIC</label>
+              <input type="radio" id="lg" name="CompanyName" value="LG"> <label for="LG">LG</label>
+              <input type="radio" id="onida" name="CompanyName" value="ONIDA"> <label for="ONIDA">ONIDA</label>
+            </td>
+          </tr>
+      </table>
+    </form>
+
+    <form action="">
+      <table>
+        <tr>
+          <td>Category :</td>
+          <td>
+            <input type="radio" id="tv" name="categories" value="TV"> <label for="TV">TV</label>
+            <input type="radio" id="fridge" name="categories" value="FRIDGE"> <label for="FRIDGE">FRIDGE</label>
+            <input type="radio" id="washing machine" name="categories" value="WASHING MACHINE"> <label for="WASHING MACHINE">WASHING MACHINE</label>
+            <input type="radio" id="ac" name="categories" value="AC"> <label for="AC">AC</label>
+            
+          </td>
+        </tr>
+
+        
+
+    </table>
+
+    <table>
+      
+        <tr>
+          <td>
+            <img id="myimgMain"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImgMain" name="filename">
+          </td>
+          <td>
+            <img id="myimg1"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImg1" name="filename">
+          </td>
+          <td>
+            <img id="myimg2"> <label id="UpProgress"></label>
+          <br><br>
+          <input type="file" id="selectImg2" name="filename">
+          </td>
+          
+        </tr>
+      
+    </table>
+    
+    <br>
+    
+    <textarea rows = "2" cols = "40" placeholder = "SearchTags" id="SearchTags"></textarea>
+ 
+   <br><br>
+    <button  type="button" class='toggle-btn' id="updates"> submit</button>
+    <button type="button" id="upload" style="display: none;" ></button>
+    <button type="button" id="SiteTitle" style="display: none;" ></button>
+
+    
+
+    </form>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </div>
+</div>
+</div>
+<script>
+  var form = document.getElementById("formMain")
+  var form2 = document.getElementById("form2")
+  var goBack = document.getElementById("goBack")
+  var search = document.getElementById("ProductSearch")
+  var ProductName = document.getElementById("ProductName")
+
+</script>
+  </body>
+</html>        

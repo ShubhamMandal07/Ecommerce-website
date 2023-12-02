@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Product Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" rel="stylesheet">
+       <!---- <link rel="stylesheet" href="C:\Users\L-Drago\Desktop\finiesh Project\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\css">-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="product-box">
+                    <div class="all-images">
+                <div class="small-images">
+                    <img id="side" src="" onclick="clickimg(this)">
+                    <img  id="side2" src="" onclick="clickimg(this)">
+                    <img id="MainImg" src="" onclick="clickimg(this)">
+                    
+                </div>
+                    <div class="main-image">
+                        <img src="" id="imagebox">
+                    </div>
+                   </div>
+                </div>
+                <div class="text">
+                    <div class="content">
+                        <p class="brand" id="CompanyName"></p>
+                        <h2 id="ProductName">LG 80 cm (32 inch) HD Ready LED Smart TV  (32LM565BPTA)</h2>
+                       
+                       
+                        <div class="price-box">
+                            <p class="price" id="NewPrice">&#8377; 77,900</p>
+                            <strike id="oldPrice">&#8377; 90,900</strike>
+                        </div>
+                       
+
+                        <p>Quantity <input type="text" value="1"></p>
+                        <button>
+                            <span class="fa fa--shopping-cart"></span>
+                        Add to Cart
+                        </button>
+                        <button class="buy">
+                            <span class="fa fa-shopping-cart"></span>
+                            BUY NOW
+                        </button><br><br>
+                        <div class="des">
+                        <span> Description</span>
+                        </div>
+                        <p>93% Colour Gamut
+                            Its wide display with 93% color gamut produces lifelike visuals with vivid colors.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="related">
+            <h2>Related items</h2>
+            <div class="row">
+                <div class="columns">
+                    <div class="items">
+                        <img src="LG/ads1.jpg" alt="">
+                        <div class="details">
+                            <p>OnePlus Y1 80 cm (32 inch) HD Ready LED Smart Android TV  (32HA0A00)</p>
+                            <!--<div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>-->
+                            <div class="review">
+                                <span>(4.6)</span>
+                                <span class="fa fa-star"></span>
+                            </div>
+
+                            <h3>&#8377;15,999 <strike>&#8377; 20,900</strike> </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="items">
+                        <img src="LG/ads2.jpg" alt="">
+                        <div class="details">
+                            <p>Mi 4A Horizon Edition 100 cm (40 inch) Full HD LED Smart Android TV</p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="review">
+                                <span>(4.1)</span>
+                                <span class="fa fa-star"></span>
+                            </div>
+
+                            <h3>&#8377;22,999 <strike>&#8377; 30,900</strike> </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="items">
+                        <img src="LG/ads6.jpg" alt="">
+                        <div class="details">
+                            <p>realme 80 cm (32 inch) HD Ready LED Smart Android TV  (TV 32)</p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="review">
+                                <span>(3.6)</span>
+                                <span class="fa fa-star"></span>
+                            </div>
+
+                            <h3>&#8377;15,999 <strike>&#8377; 19,999</strike> </h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="items">
+                        <img src="LG/ads4.jpg" alt="">
+                        <div class="details">
+                            <p>SAMSUNG 80 cm (32 inch) HD Ready LED Smart TV  (UA32T4340AKXXL / UA32T4340BKXXL)</p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="review">
+                                <span>(4.6)</span>
+                                <span class="fa fa-star"></span>
+                            </div>
+
+                            <h3>&#8377;17,499 <strike>&#8377; 22,900</strike> </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    
+
+        
+        <script>
+            function clickimg(smallImg){
+                var fullImg = document.getElementById("imagebox")
+                fullImg.src = smallImg.src
+            }
+        </script>
+       
+        <script>
+          var test = JSON.parse('[' + sessionStorage.getItem("moreInfo") + ']');
+          console.log(test[0])
+          document.getElementById("MainImg").setAttribute('src',test[0].ProductMainImageLink)
+          document.getElementById("side").setAttribute('src',test[0].ProductSideImageLink)
+          document.getElementById("side2").setAttribute('src',test[0].ProductSide2ImageLink)
+          document.getElementById("ProductName").innerHTML =  test[0].ProductName;
+          document.getElementById("CompanyName").innerHTML = "Brand :" + test[0].CompanyName;
+          document.getElementById("oldPrice").innerHTML =   test[0].ProductPrice;
+          document.getElementById("newPrice").innerHTML =   test[0].ProductSalePrice;
+          var str =  test[0].ProductDescription
+          console.log(str.split(",").join("\n"))
+          var description =str.split(",").join("\n")
+          document.getElementById("description").innerHTML = str.split(",").join("<br />");
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="inner-box" id="card">
+                    <div class="card-front">
+                        <h2>Admin Page</h2>
+                        <div class="details">
+                            
+                                <form > 
+                                    <input type="email" name="email"class="input-box" placeholder="Email" required><br><br>
+                                    <input type="password" name="password" class="input-box" placeholder="Password" required><br>
+                                    
+                                    <button type="submit" name="submit" class="submit-btn" onclick="openViewDetails()">Login</button>
+                                    
+                                </form>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card-back">
+
+                        <div class="center">
+                            <form>
+                                <a href="AddNewItem.html">Add New Product</a>
+                                <a href="Edit.html">Edit/Delete Product</a> 
+                            </form>
+                            
+                        </div>
+
+                    </div>      -->
+                </div>
+            </div>
+        </div>
+
+        
+        <script>
+            var card = document.getElementById("card");
+            function openViewDetails(){
+                    card.style.transform = "rotateY(-180deg)"; 
+                    
+                    var delayInMilliseconds = 1000; //1 second
+
+                setTimeout(function() {
+                //your code to be executed after 1 second
+                window.location.href = "AdminPage.html" 
+                }, delayInMilliseconds);
+                     
+            }
+            
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\Users\\svish\\Downloads\\Product_page"
+		},
+		{
+			"path": "..\\..\\Users\\svish\\Downloads\\update_and_delect\\update and delect"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "KE"
+	}
+}
